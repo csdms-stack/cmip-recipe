@@ -1,5 +1,5 @@
 {% set name = "cmip" %}
-{% set version = "0.1" %}
+{% set version = "0.1.1" %}
 
 package:
   name: {{ name }}
@@ -17,14 +17,14 @@ requirements:
   build:
     - python
   run:
+    - python
     - netcdf4
     - numpy
     - python-dateutil
     - pyyaml
+    - nose
 
 test:
-  requires:
-    - nose
   imports:
     - cmip
 
