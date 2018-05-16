@@ -1,0 +1,41 @@
+{% set name = "cmip" %}
+{% set version = "0.1" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  git_url: https://github.com/permamodel/cmip
+  git_rev: v{{ version }}
+
+build:
+  # number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+  run:
+    - netcdf4
+    - numpy
+    - python-dateutil
+    - pyyaml
+
+test:
+  requires:
+    - nose
+    - bmi-tester
+  imports:
+    - cmip
+  commands:
+    - bmi-tester cmip.bmi_cmip.BmiCMIPComponentMethod
+
+about:
+  home: https://csdms.colorado.edu/wiki/Model:CMIP
+  license: MIT
+  summary:
+    The CMIP component provides access to a set of temperature and
+    precipitation data in the permafrost regions of the world for
+    years 1900 to 2100 from forecasts from CMIP models.
+  dev_url: https://github.com/permamodel/cmip
