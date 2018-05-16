@@ -25,11 +25,8 @@ requirements:
 test:
   requires:
     - nose
-    - bmi-tester
   imports:
     - cmip
-  commands:
-    - bmi-tester cmip.bmi_cmip.BmiCMIPComponentMethod
 
 about:
   home: https://csdms.colorado.edu/wiki/Model:CMIP
