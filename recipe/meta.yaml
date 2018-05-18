@@ -1,5 +1,5 @@
 {% set name = "cmip" %}
-{% set version = "0.1.1" %}
+{% set version = "0.1.3" %}
 
 package:
   name: {{ name }}
@@ -10,7 +10,7 @@ source:
   git_rev: v{{ version }}
 
 build:
-  # number: 0
+  string: py27_0
   script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
